@@ -3,7 +3,7 @@ guid: afe916a5419cc7244b73758c1aba2202
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -113,12 +113,12 @@ TextureImporter:
       name: B_witch_run_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 336
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 342
+        width: 20
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,36 +131,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: B_witch_run_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 288
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47e02d85926c78f4f8a73d2e46091eb8
-      internalID: 722149450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: B_witch_run_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 240
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 294
+        width: 20
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,36 +152,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: B_witch_run_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57aae296b4aa36447a9b9539fa3f8258
-      internalID: -1123982978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: B_witch_run_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 246
+        width: 20
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,36 +173,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: B_witch_run_5
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac8b57cfe13f5bf4faa1fbb97a4421e6
-      internalID: 620833280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: B_witch_run_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 198
+        width: 19
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,22 +194,85 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: B_witch_run_7
+      name: B_witch_run_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 150
+        width: 20
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe97443afc7e73e4eb7afb8c7b11b4b4
-      internalID: -1194537619
+      spriteID: 08283a1152049894189ee85e680dcae8
+      internalID: -1981332890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_witch_run_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 102
+        width: 20
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf38be7ee1a4309499aaff4b18505735
+      internalID: -1196858459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_witch_run_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 54
+        width: 20
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adcbb791957d4324fbd58257b69e45b2
+      internalID: -121900709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B_witch_run_14
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 19
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d35ec4ccfbcb5947bf0450cfba96cd8
+      internalID: 1726085744
       vertices: []
       indices: 
       edges: []
@@ -290,12 +290,20 @@ TextureImporter:
     nameFileIdTable:
       B_witch_run_0: -78018457
       B_witch_run_1: 722149450
+      B_witch_run_10: -1196858459
+      B_witch_run_11: 177061020
+      B_witch_run_12: -121900709
+      B_witch_run_13: -802891315
+      B_witch_run_14: 1726085744
+      B_witch_run_15: 1609108240
       B_witch_run_2: 151998666
       B_witch_run_3: -1123982978
       B_witch_run_4: 736532443
       B_witch_run_5: 620833280
       B_witch_run_6: 1493811037
       B_witch_run_7: -1194537619
+      B_witch_run_8: -1981332890
+      B_witch_run_9: 875235719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

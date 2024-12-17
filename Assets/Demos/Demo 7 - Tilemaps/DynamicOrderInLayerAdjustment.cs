@@ -1,20 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DynamicOrderInLayerAdjustment : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    public List<SpriteRenderer> PlayerSprites;
 
     // Update is called once per frame
     void Update()
     {
-        spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * -10);
+        //It's a list so that I can also update player arrow and book sprites based on player position.
+        foreach (SpriteRenderer spriteRenderer in PlayerSprites)
+        {
+            spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * -10);
+        }
     }
 }

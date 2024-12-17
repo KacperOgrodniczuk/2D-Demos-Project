@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Dynamic Layer
+    uniqueID: 2772175833
+    locked: 0
