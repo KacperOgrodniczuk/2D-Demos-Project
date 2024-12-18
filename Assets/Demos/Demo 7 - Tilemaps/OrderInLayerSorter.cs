@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UIElements;
 
 public class OrderInLayerSorter : EditorWindow
 {
     Transform environmentParent;     //Top-parent object of the environment as this is what we will use to cycle thorugh environment objects.
     string[] sortingLayers;         // Array to hold existing sorting layer names
     int selectedLayerIndex = 0;     // Index of the selected sorting layer
+    bool sortChildren;
 
     [MenuItem("Tools/Order In Layer Sorter")]   //Adds the tool to Unity's menu bar
 
@@ -22,9 +24,22 @@ public class OrderInLayerSorter : EditorWindow
 
     private void OnGUI()
     {
-        // Input field for the environment parent
-        environmentParent = (Transform)EditorGUILayout.ObjectField("Environment Parent", environmentParent, typeof(Transform), true);
-        selectedLayerIndex = EditorGUILayout.Popup("Sorting Layer", selectedLayerIndex, sortingLayers);
+        environmentParent = (Transform)EditorGUILayout.ObjectField(
+            new GUIContent("Environment Parent", "This tool assumes all the props that need to be dynamically sorted are under the same gameobject."), 
+            environmentParent, 
+            typeof(Transform), 
+            true
+            );
+
+        selectedLayerIndex = EditorGUILayout.Popup(
+            new GUIContent("Sorting Layer", "Select the sorting layer you want the sorted objects to be set to."),
+            selectedLayerIndex, 
+            sortingLayers
+            );
+
+        sortChildren = EditorGUILayout.Toggle(
+            new GUIContent("Sort Children", "Sort the order in layer of props' children?"), 
+            true);
 
         if (GUILayout.Button("Update Sorting Layers"))
         {
@@ -49,10 +64,17 @@ public class OrderInLayerSorter : EditorWindow
                 sr.sortingOrder = Mathf.RoundToInt(child.position.y * -10);
                 sr.sortingLayerName = "Dynamic Layer";
             }
+
+            if (sortChildren)
+            { 
+                //sort through children of the child. 
+            }
         }
 
         Debug.Log("Sorting layers updated for all children of " + environmentParent.name);
     }
+
+
 
     private string[] GetSortingLayerNames()
     {

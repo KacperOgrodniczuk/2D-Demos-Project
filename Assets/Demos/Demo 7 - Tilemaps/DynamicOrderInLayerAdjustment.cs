@@ -1,17 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
 
+//This code is attached to components that have a sprite and will that needs to have their layer sorted dynamically during runtim.
+//Such as the player, player arrow or weapon sprite.
 public class DynamicOrderInLayerAdjustment : MonoBehaviour
 {
-    public List<SpriteRenderer> PlayerSprites;
+    SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        //It's a list so that I can also update player arrow and book sprites based on player position.
-        foreach (SpriteRenderer spriteRenderer in PlayerSprites)
-        {
-            spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * -10);
-        }
+        spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * -10);
     }
 }
