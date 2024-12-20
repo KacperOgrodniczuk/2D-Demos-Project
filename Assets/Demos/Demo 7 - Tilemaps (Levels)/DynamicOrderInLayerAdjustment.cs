@@ -1,19 +1,53 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 //This code is attached to components that have a sprite and will that needs to have their layer sorted dynamically during runtim.
 //Such as the player, player arrow or weapon sprite.
-public class DynamicOrderInLayerAdjustment : MonoBehaviour
+public class DynamicOrderInLayerManager : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    // Singleton instance
+    public static DynamicOrderInLayerManager Instance { get; private set; }
 
-    private void Start()
+    // List of sprite renderers to manage
+    private List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
+
+    private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        // Ensure only one instance exists
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate manager objects
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    // Register a sprite renderer for sorting
+    public void Register(SpriteRenderer spriteRenderer)
     {
-        spriteRenderer.sortingOrder = Mathf.RoundToInt(transform.position.y * -100);
+        if (!spriteRenderers.Contains(spriteRenderer))
+        {
+            spriteRenderers.Add(spriteRenderer);
+        }
+    }
+
+    // Unregister a sprite renderer
+    public void Unregister(SpriteRenderer spriteRenderer)
+    {
+        if (spriteRenderers.Contains(spriteRenderer))
+        {
+            spriteRenderers.Remove(spriteRenderer);
+        }
+    }
+
+    // Update sorting order every frame
+    private void Update()
+    {
+        foreach (SpriteRenderer renderer in spriteRenderers)
+        {
+            renderer.sortingOrder = Mathf.RoundToInt(renderer.transform.position.y * -100);
+        }
     }
 }

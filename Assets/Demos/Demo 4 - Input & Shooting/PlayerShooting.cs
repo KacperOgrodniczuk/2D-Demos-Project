@@ -38,13 +38,14 @@ public class PlayerShooting : MonoBehaviour
     {
         // Instantiate the bullet at the fire point's position and rotation
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, firePointRotation.rotation);
-        
+
+        // Adjust the rotation of the bullet to face right (if it's not facing the right direction by default)
+        bullet.transform.rotation = Quaternion.Euler(0, 0, firePointRotation.rotation.eulerAngles.z + bulletPrefab.transform.rotation.eulerAngles.z);  // Correct the sprite rotation
+
         // Get the Rigidbody2D component from the bullet
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
         // Apply velocity to the bullet in the direction the fire point is facing
         rb.velocity = firePointRotation.right * bulletSpeed; 
-
-        Destroy(bullet, 10f);
     }
 }

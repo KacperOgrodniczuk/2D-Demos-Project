@@ -1,16 +1,21 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]         //Tell Unity to add theses components to the gameobject this code is attached to.
 public class RigidbodyMovement : MonoBehaviour
 {
-    Rigidbody2D rb2d;
-    public float moveSpeed = 5f;
+    public Rigidbody2D rb2d { get; private set; }
 
+    public bool IsMoving { get; private set; } = false;
+    public bool FacingRight { get; private set; } = true;
+
+    float moveSpeed = 5f;
+
+    // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         float moveInputX = Input.GetAxisRaw("Horizontal"); // For horizontal movement (left/right)
@@ -22,5 +27,15 @@ public class RigidbodyMovement : MonoBehaviour
 
         // Assign velocity directly to the Rigidbody
         rb2d.velocity = moveDirection * moveSpeed;
+
+        // Tell the animator if we're moving
+        if (rb2d.velocity.magnitude > 0.1f)
+        {
+            IsMoving = true;
+        }
+        else
+        {
+            IsMoving = false;
+        }
     }
 }
