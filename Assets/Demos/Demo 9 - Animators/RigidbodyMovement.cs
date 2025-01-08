@@ -8,7 +8,7 @@ public class RigidbodyMovement : MonoBehaviour
     public bool FacingRight { get; private set; } = true;
 
     float moveSpeed = 5f;
-
+    
     // Start is called before the first frame update
     void Start()
     {

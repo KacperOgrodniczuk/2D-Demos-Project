@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MagicMissile : MonoBehaviour
 {
     float lifeTime = 10f;
+
+    public int damage = 5;
 
     SpriteRenderer spriteRenderer;
 
@@ -17,6 +17,11 @@ public class MagicMissile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<Health>()?.TakeDamage(damage);
+        }
+
         Destroy(gameObject);
     }
 
