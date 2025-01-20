@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;   //We will use this to set the max health value in the inspector
-    int currentHealth;      //Hidden number to keep track of current health
+    public int maxHealth;           //We will use this to set the max health value in the inspector
+    int currentHealth;          //Hidden number to keep track of current health
 
     private void Start()
     {

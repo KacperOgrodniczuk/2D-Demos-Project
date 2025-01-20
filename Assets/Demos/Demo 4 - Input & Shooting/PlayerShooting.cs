@@ -46,6 +46,6 @@ public class PlayerShooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
         // Apply velocity to the bullet in the direction the fire point is facing
-        rb.velocity = firePointRotation.right * bulletSpeed; 
+        rb.velocity = firePointRotation.right * bulletSpeed;
     }
 }
