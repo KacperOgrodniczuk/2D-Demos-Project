@@ -4,7 +4,7 @@ using UnityEngine;
 public class EndlessSpawner : MonoBehaviour
 {
     public GameObject objectToSpawn; // The prefab to spawn
-    public Transform spawnPoint;     // The point where objects will be spawned
+    public Transform[] spawnPoints;     // The point where objects will be spawned
 
     float spawnInterval = 2f;       // Time between spawns in seconds
     float minimumSpawnInterval = 1f;    // The minimal amount of time between enemies spawning.
@@ -20,9 +20,11 @@ public class EndlessSpawner : MonoBehaviour
 
         while (true)
         {
-            if (objectToSpawn != null && spawnPoint != null)
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+            if (objectToSpawn != null && spawnPoints[spawnPointIndex] != null)
             {
-                Instantiate(objectToSpawn, spawnPoint.position, spawnPoint.rotation);
+                Instantiate(objectToSpawn, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
             }
             else
             {
