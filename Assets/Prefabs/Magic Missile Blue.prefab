@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3524175763262747803}
   - component: {fileID: 4425277600003799729}
   - component: {fileID: 4322522203300010333}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Magic Missile Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.2
 --- !u!95 &3524175763262747803
 Animator:
   serializedVersion: 5
@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3a8b41e6d207b4797fc0a321f96cf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
 --- !u!114 &4322522203300010333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,9 +200,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.75
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000d90b3ca5

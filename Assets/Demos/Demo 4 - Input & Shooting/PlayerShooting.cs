@@ -9,6 +9,9 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
+        if (UIManager.isPaused)     // If the game is supposed to be paused ignore the rest of the code.
+            return;
+
         RotateBulletSpawnPointTowardsMouse();
 
         // Check for the "Fire1" input (left mouse button or spacebar by default)
@@ -20,6 +23,7 @@ public class PlayerShooting : MonoBehaviour
 
     void RotateBulletSpawnPointTowardsMouse()
     {
+
         // Get the mouse position in screen space and convert it to world space
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f; // Ensure z-axis is 0 for 2D space

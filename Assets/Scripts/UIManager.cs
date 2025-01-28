@@ -3,7 +3,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;      //Reference to our UI so we can enable it and hide it.
-    private static bool isPaused = false;
+    public static bool isPaused = false;
 
     void Update()
     {
