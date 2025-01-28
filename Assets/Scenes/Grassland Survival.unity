@@ -30803,10 +30803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (2 Way) (Virtual Movement)
       objectReference: {fileID: 0}
-    - target: {fileID: 3461702262274327656, guid: 67b44357f9fe3a2479872fe17760a8bb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
