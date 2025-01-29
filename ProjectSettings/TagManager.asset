@@ -12,12 +12,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Combat
+  - Player Combat
   - Ground Interaction
   - Environment
   - Props
-  - Projectiles
-  - 
+  - Player Projectiles
+  - Enemy Combat
   - 
   - 
   - 

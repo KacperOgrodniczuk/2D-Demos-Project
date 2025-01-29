@@ -2571,7 +2571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &724562995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30802,6 +30802,22 @@ PrefabInstance:
     - target: {fileID: 3461702262274327656, guid: 67b44357f9fe3a2479872fe17760a8bb, type: 3}
       propertyPath: m_Name
       value: Player (2 Way) (Virtual Movement)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300243701135189598, guid: 67b44357f9fe3a2479872fe17760a8bb, type: 3}
+      propertyPath: m_Size.x
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300243701135189598, guid: 67b44357f9fe3a2479872fe17760a8bb, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5833333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300243701135189598, guid: 67b44357f9fe3a2479872fe17760a8bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1036312227, guid: 4680f2f6eeed4ac4cb4edb9f7d922c23, type: 3}
+    - target: {fileID: 4300243701135189598, guid: 67b44357f9fe3a2479872fe17760a8bb, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

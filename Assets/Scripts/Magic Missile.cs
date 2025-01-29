@@ -17,10 +17,7 @@ public class MagicMissile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
-        {
-            collision.GetComponent<Health>()?.TakeDamage(damage);
-        }
+        //collision.GetComponent<IDamageable>()?.TakeDamage(damage);
 
         Destroy(gameObject);
     }

@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public GameObject bulletPrefab; // Prefab of the bullet
-    public Transform firePointRotation;     // The position where bullets are spawned
-    public Transform bulletSpawnPoint;
-    public float bulletSpeed = 20f; // Speed of the bullet
+    [SerializeField] GameObject bulletPrefab; // Prefab of the bullet
+    [SerializeField] Transform firePointRotation;     // The position where bullets are spawned
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] float bulletSpeed = 20f; // Speed of the bullet
+    [SerializeField] float attackRate = 2f;
+
+
+    [Header("Timer Variables")]
+    float lastTimeShot;
 
     void Update()
     {
@@ -14,11 +19,8 @@ public class PlayerShooting : MonoBehaviour
 
         RotateBulletSpawnPointTowardsMouse();
 
-        // Check for the "Fire1" input (left mouse button or spacebar by default)
-        if (Input.GetButtonDown("Fire1"))
-        {
+        if (CanShoot())
             Shoot();
-        }
     }
 
     void RotateBulletSpawnPointTowardsMouse()
@@ -38,8 +40,16 @@ public class PlayerShooting : MonoBehaviour
         firePointRotation.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
+    bool CanShoot()
+    {
+        return Input.GetButton("Fire1") && Time.time >= lastTimeShot + attackRate;
+    }
+
     void Shoot()
     {
+        
+        lastTimeShot = Time.time;
+
         // Instantiate the bullet at the fire point's position and rotation
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, firePointRotation.rotation);
 
