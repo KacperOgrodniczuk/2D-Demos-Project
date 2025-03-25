@@ -8,9 +8,16 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] float bulletSpeed = 20f; // Speed of the bullet
     [SerializeField] float attackRate = 2f;
 
+    AudioSource audioSource;    //The source attached to this gameobject. 
+    public AudioClip attackSound;   //The sound effect that will play whenever a magic missile is shot.
 
     [Header("Timer Variables")]
     float lastTimeShot;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -47,7 +54,9 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        
+        //Play the attach sound whenever we shoot.
+        audioSource.PlayOneShot(attackSound);
+
         lastTimeShot = Time.time;
 
         // Instantiate the bullet at the fire point's position and rotation

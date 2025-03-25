@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Demos/Demo 9 - Animators/Demo 9 Scene.unity
-    guid: 7ddc8cf0b5148ed47ba3205e82c6ff33
+    path: Assets/Scenes/Main Menu.unity
+    guid: b728b2d11ffedfd40a0482bfc6ebe5b8
+  - enabled: 1
+    path: Assets/Scenes/Grassland Survival.unity
+    guid: 62137b5f07a180e42ad5d55ed8d3c16a
   m_configObjects: {}

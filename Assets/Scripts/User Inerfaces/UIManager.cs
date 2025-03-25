@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
             else PauseGame();
         }
     }
+    
 
     public void ResumeGame()
     {

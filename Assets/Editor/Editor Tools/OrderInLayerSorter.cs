@@ -1,15 +1,13 @@
 using UnityEngine;
-using UnityEditor;
-using UnityEngine.UIElements;
 
-public class OrderInLayerSorter : EditorWindow
+public class OrderInLayerSorter : UnityEditor.EditorWindow
 {
     Transform environmentParent;     //Top-parent object of the environment as this is what we will use to cycle thorugh environment objects.
     string[] sortingLayers;         // Array to hold existing sorting layer names
     int selectedLayerIndex = 1;     // Index of the selected sorting layer
     bool sortNestedChildren = true;
 
-    [MenuItem("Tools/Order In Layer Sorter")]   //Adds the tool to Unity's menu bar
+    [UnityEditor.MenuItem("Tools/Order In Layer Sorter")]   //Adds the tool to Unity's menu bar
 
     public static void ShowWindow()
     {
@@ -24,20 +22,20 @@ public class OrderInLayerSorter : EditorWindow
 
     private void OnGUI()
     {
-        environmentParent = (Transform)EditorGUILayout.ObjectField(
+        environmentParent = (Transform)UnityEditor.EditorGUILayout.ObjectField(
             new GUIContent("Environment Parent", "This tool assumes all the props that need to be dynamically sorted are under the same gameobject."), 
             environmentParent, 
             typeof(Transform), 
             true
             );
 
-        selectedLayerIndex = EditorGUILayout.Popup(
+        selectedLayerIndex = UnityEditor.EditorGUILayout.Popup(
             new GUIContent("Sorting Layer", "Select the sorting layer you want the sorted objects to be set to."),
             selectedLayerIndex, 
             sortingLayers
             );
 
-        sortNestedChildren = EditorGUILayout.Toggle(
+        sortNestedChildren = UnityEditor.EditorGUILayout.Toggle(
             new GUIContent("Sort Nested Children", "Sort the order in layer of props' children?"), 
             sortNestedChildren);
 
