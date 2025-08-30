@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab; // Prefab of the bullet
-    [SerializeField] Transform firePointRotation;     // The position where bullets are spawned
-    [SerializeField] Transform bulletSpawnPoint;
-    [SerializeField] float bulletSpeed = 20f; // Speed of the bullet
-    [SerializeField] float attackRate = 2f;
+    public GameObject bulletPrefab; // Prefab of the bullet
+    public Transform firePointRotation;     // The position where bullets are spawned
+    public Transform bulletSpawnPoint;
+    public float projectileSpeed = 20f; // Speed of the bullet
+    public float attackRate = 2f;
+    public float attackDamage = 1f;
 
     AudioSource audioSource;    //The source attached to this gameobject. 
     public AudioClip attackSound;   //The sound effect that will play whenever a magic missile is shot.
@@ -60,15 +61,13 @@ public class PlayerShooting : MonoBehaviour
         lastTimeShot = Time.time;
 
         // Instantiate the bullet at the fire point's position and rotation
+        // All prefabs by default should be facing the right side. 2D, right is treated as forward in 3D
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, firePointRotation.rotation);
 
         // Adjust the rotation of the bullet to face right (if it's not facing the right direction by default)
         bullet.transform.rotation = Quaternion.Euler(0, 0, firePointRotation.rotation.eulerAngles.z + bulletPrefab.transform.rotation.eulerAngles.z);  // Correct the sprite rotation
 
-        // Get the Rigidbody2D component from the bullet
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-        // Apply velocity to the bullet in the direction the fire point is facing
-        rb.velocity = firePointRotation.right * bulletSpeed;
+        // Shoot the bullet passing through neccessary values
+        bullet.GetComponent<MagicMissile>().Shoot(firePointRotation.right, projectileSpeed, attackDamage);
     }
 }
