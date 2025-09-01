@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+public class PlayerAttackManager : MonoBehaviour
 {
     public GameObject bulletPrefab; // Prefab of the bullet
     public Transform firePointRotation;     // The position where bullets are spawned
@@ -22,7 +22,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        if (UIManager.isPaused)     // If the game is supposed to be paused ignore the rest of the code.
+        if (UIManager.Instance.isPaused)     // If the game is supposed to be paused ignore the rest of the code.
             return;
 
         RotateBulletSpawnPointTowardsMouse();

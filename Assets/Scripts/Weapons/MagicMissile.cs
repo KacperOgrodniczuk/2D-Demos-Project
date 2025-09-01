@@ -9,12 +9,14 @@ public class MagicMissile : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D rigidBody2D;
 
-    private void Start()
+    private void Awake()
     {
         Destroy(gameObject, lifeTime);
+
         spriteRenderer = GetComponent<SpriteRenderer>();
-        DynamicOrderInLayerManager.Instance.Register(spriteRenderer);
         rigidBody2D = GetComponent<Rigidbody2D>();
+        
+        DynamicOrderInLayerManager.Instance.Register(spriteRenderer);
     }
 
     public void Shoot(Vector3 direction, float projectileSpeed, float projectileDamage)

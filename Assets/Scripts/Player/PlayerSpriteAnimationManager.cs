@@ -7,13 +7,13 @@ public class PlayerSpriteAnimationManager : MonoBehaviour
     public SpriteRenderer arrowRenderer;
     Animator animator;
 
-    RigidbodyMovement playerMovement;
+    PlayerMovementManager playerMovement;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        playerMovement = GetComponent<RigidbodyMovement>();
+        playerMovement = GetComponent<PlayerMovementManager>();
         
         DynamicOrderInLayerManager.Instance.Register(spriteRenderer);
         DynamicOrderInLayerManager.Instance.Register(weaponRenderer);

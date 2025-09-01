@@ -1,37 +1,78 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject pauseMenuUI;      //Reference to our UI so we can enable it and hide it.
-    public static bool isPaused = false;
+    [Header("UI references")]
+    public GameObject pauseMenuUI;
+    public GameObject gameOverUI;
+    public GameObject upgradeUI;
+    public Slider healthSlider;
+    public bool isPaused { get; private set; } = false;
+    public bool isGameOver { get; private set; } = false;
 
-    void Update()
+    public static UIManager Instance;
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // You can change the key
+        if (Instance == null)
         {
-            if (isPaused) ResumeGame();     //If the game is already paused, resume it.
-            else PauseGame();
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
-    
 
-    public void ResumeGame()
+    private void OnEnable()
     {
-        pauseMenuUI.SetActive(false);
+        EventManager.OnHealthChange += UpdateHealthUI;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnHealthChange -= UpdateHealthUI;
+    }
+
+    private void UpdateHealthUI(float newValue)
+    {
+        healthSlider.value = newValue;
+    }
+
+    public void ShowUpgradeUI()
+    {
+        upgradeUI.SetActive(true);
+    }
+
+    public void HideUpgradeUI()
+    { 
+        upgradeUI.SetActive(false);
+    }
+
+    public void ShowGameOverUI()
+    { 
+        isGameOver = true;
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+
+    public void RestartGame()
+    {
+        isGameOver = false;
+        gameOverUI.SetActive(false);
         Time.timeScale = 1f;
-        isPaused = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void PauseGame()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
+    public void TogglePauseMenuUI()
+    { 
+        isPaused = !isPaused;
+        pauseMenuUI.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0.0f : 1.0f;
     }
 
-    public void QuitGame()
-    {
-        Debug.Log("Quitting the game...");
-        Application.Quit(); // Only works in built games. Not in the Unity editor.
-    }
+    public void QuitGame() => Application.Quit();
 }

@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class RigidbodyMovement : MonoBehaviour
+public class PlayerMovementManager : MonoBehaviour
 {
     public Rigidbody2D rb2d { get; private set; }
 
     public bool IsMoving { get; private set; } = false;
     public bool FacingRight { get; private set; } = true;
 
-    [SerializeField] float moveSpeed = 4f;
+    public float moveSpeed = 4f;
     
     // Start is called before the first frame update
     void Start()

@@ -1,30 +1,16 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BasicEnemy : MonoBehaviour, IDamageable
+public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField]
-    float maxHealth;
+    public float maxHealth = 2f;
+    public int scoreValue = 1;
     float currentHealth;
 
-    NavMeshAgent agent;
-    GameObject player;
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-
-        player = GameObject.FindWithTag("Player");
         currentHealth = maxHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        agent.SetDestination(player.transform.position);
     }
 
     public void Heal(float healAmount)
@@ -41,6 +27,7 @@ public class BasicEnemy : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        EventManager.OnEnemyDeath?.Invoke(scoreValue);
         //This will get replaced with a death animation at some point.
         Destroy(gameObject);
     }
