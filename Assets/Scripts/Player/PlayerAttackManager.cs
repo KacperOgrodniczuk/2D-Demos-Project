@@ -22,7 +22,7 @@ public class PlayerAttackManager : MonoBehaviour
 
     void Update()
     {
-        if (UIManager.Instance.isPaused)     // If the game is supposed to be paused ignore the rest of the code.
+        if (GameStateManager.Instance.CurrentState != GameStateManager.GameState.Playing)     // If the game is supposed to be paused ignore the rest of the code.
             return;
 
         RotateBulletSpawnPointTowardsMouse();

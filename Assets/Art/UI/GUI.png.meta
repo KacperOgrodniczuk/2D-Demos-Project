@@ -219,11 +219,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 135
-        y: 118
-        width: 45
+        y: 102
+        width: 52
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,7 +244,7 @@ TextureImporter:
         width: 49
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,6 +274,7 @@ TextureImporter:
       GUI_4: 84210695
       GUI_5: 1396388228
       GUI_6: 1129808011
+      GUI_7: -1498673954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

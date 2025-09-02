@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerUpgradeManager : MonoBehaviour
 {
-    PlayerAttackManager attackManager;
-    PlayerMovementManager movementManager;
+    public PlayerAttackManager attackManager;
+    public PlayerMovementManager movementManager;
 
     [Header("Stat multipliers")]
     public float attackDamageMultiplier = 2f;
@@ -13,12 +13,11 @@ public class PlayerUpgradeManager : MonoBehaviour
     public float movementSpeedMultiplier = 1.1f;
 
     int totalKills = 0;
+    int killsToNextUpgrade = 10;
+    float killsToNextUpgradeMultiplier = 1.1f;
 
     private void Awake()
     {
-        attackManager = GetComponent<PlayerAttackManager>();
-        movementManager = GetComponent<PlayerMovementManager>();
-
         EventManager.OnEnemyDeath += OnEnemyDeath;
     }
 
@@ -26,27 +25,33 @@ public class PlayerUpgradeManager : MonoBehaviour
     { 
         totalKills += score;
 
-        if (totalKills % 10 == 0)
+        if (totalKills >= killsToNextUpgrade)
         {
-            UIManager.Instance.ShowUpgradeUI();
+            GameStateManager.Instance.SetGameState(GameStateManager.GameState.SelectingUpgrade);
         }
     }
 
     public void IncreaseDamage()
     {
         attackManager.attackDamage *= attackDamageMultiplier;
-        UIManager.Instance.HideUpgradeUI();
+        FinaliseUpgrade();
     }
 
     public void IncreaseMovementSpeed()
     {
         movementManager.moveSpeed += movementSpeedMultiplier;
-        UIManager.Instance.HideUpgradeUI();
+        FinaliseUpgrade();
     }
 
     public void IncreaseAttackRate()
     { 
         attackManager.attackRate *= attackRateMultiplier;
-        UIManager.Instance.HideUpgradeUI();
+        FinaliseUpgrade();
+    }
+
+    void FinaliseUpgrade()
+    {
+        killsToNextUpgrade = killsToNextUpgrade + Mathf.RoundToInt(killsToNextUpgrade * killsToNextUpgradeMultiplier);
+        GameStateManager.Instance.SetGameState(GameStateManager.GameState.Playing);
     }
 }
