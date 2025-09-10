@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IDamageable
 {   
     void TakeDamage(float damageAmount);
-    void Heal(float healAmount);
+    void ResetHealth();
     void Die();
 }

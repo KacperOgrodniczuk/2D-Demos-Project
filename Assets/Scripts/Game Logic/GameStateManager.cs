@@ -30,6 +30,10 @@ public class GameStateManager : MonoBehaviour
         SetGameState(GameState.Playing);
     }
 
+    /// <summary>
+    /// Sets the current state of the game and broadcasts a change event.
+    /// </summary>
+    /// <param name="gameState">The new state to set for the game.</param>
     public void SetGameState(GameState gameState)
     {
         CurrentState = gameState;

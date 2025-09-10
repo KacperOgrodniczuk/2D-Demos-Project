@@ -12,24 +12,6 @@ public class UIManager : MonoBehaviour
     public GameObject upgradeUI;
     public Slider healthSlider;
 
-    public static UIManager Instance;
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-
-            // For now we ignore the below, but in the future it needs to not destroy itself and dynamically grab references
-            // On scene reloads, and handle null checks
-            //transform.parent = null;    //unparent the object. Parent is for organisation in hierarchy. DontDestroyOnLoad can't be called on non root objects.    
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void OnEnable()
     {
         EventManager.OnHealthChange += UpdateHealthUI;

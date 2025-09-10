@@ -21,9 +21,9 @@ public class PlayerUpgradeManager : MonoBehaviour
         EventManager.OnEnemyDeath += OnEnemyDeath;
     }
 
-    void OnEnemyDeath(int score)
+    void OnEnemyDeath()
     { 
-        totalKills += score;
+        totalKills++;
 
         if (totalKills >= killsToNextUpgrade)
         {

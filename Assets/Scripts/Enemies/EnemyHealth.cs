@@ -3,19 +3,21 @@ using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
+    public EnemyManager enemyManager { get; private set; }
+
     public float maxHealth = 2f;
-    public int scoreValue = 1;
     float currentHealth;
 
-    // Start is called before the first frame update
     void Awake()
     {
+        enemyManager = GetComponent<EnemyManager>();
+        
         currentHealth = maxHealth;
     }
 
-    public void Heal(float healAmount)
+    public void ResetHealth()
     {
-        throw new System.NotImplementedException();
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damageAmount)
@@ -27,8 +29,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        EventManager.OnEnemyDeath?.Invoke(scoreValue);
-        //This will get replaced with a death animation at some point.
-        Destroy(gameObject);
+        EventManager.OnEnemyDeath?.Invoke();
+        enemyManager.ReturnToPool(gameObject);
     }
 }

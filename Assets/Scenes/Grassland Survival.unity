@@ -3423,7 +3423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc3ac36b3e143f44a5b1c9e6aeb8a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 8875002795648050995, guid: 7886d18c350e73442bdd61c87d3c5c25, type: 3}
+  enemyPrefab: {fileID: 8875002795648050995, guid: 7886d18c350e73442bdd61c87d3c5c25, type: 3}
   spawnPoints:
   - {fileID: 1550034743}
   - {fileID: 163250458}
@@ -3431,6 +3431,9 @@ MonoBehaviour:
   - {fileID: 1210211351}
   - {fileID: 1336875715}
   - {fileID: 502341872}
+  initialMaxEnemies: 5
+  enemyCapIncreasePerMinute: 2
+  spawnInterval: 2
 --- !u!4 &724562996
 Transform:
   m_ObjectHideFlags: 0
