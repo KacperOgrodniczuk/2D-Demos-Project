@@ -1,20 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class LootDrop : MonoBehaviour {
-
-    [Tooltip("The data of the item this physical object represents")]
+public class LootDrop : MonoBehaviour
+{
     public Item itemData;
 
-    [Tooltip("The amount of the item to add to the inventory upon collection")]
     public int amount;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            EventManager.OnItemPickup?.Invoke(itemData, amount);
+    private SpriteRenderer spriteRenderer;
 
-            Destroy(gameObject);
-        }
+    private void Awake()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void SetItemData(DroppableItem droppableItem)
+    {
+        itemData = droppableItem.itemData;
+        amount = droppableItem.amount;
+
+        spriteRenderer.sprite = droppableItem.itemData.icon;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // No need to check for tag since collisions are limited in the phsyics collision matrix.
+        EventManager.OnItemPickup?.Invoke(itemData, amount);
+
+        Destroy(gameObject);
     }
 }

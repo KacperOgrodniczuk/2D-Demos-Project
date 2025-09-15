@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 6921296176437788131}
   - component: {fileID: 1636771398284097393}
   - component: {fileID: 1716684244764801466}
+  - component: {fileID: 5292428338776689431}
   m_Layer: 11
-  m_Name: Red Slime
+  m_Name: Red Slime Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,5 +229,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c6a8da9b03b6ad4197ad9e4346d0b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5292428338776689431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875002795648050995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb2587fba13e0440b03c336e00d13e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
