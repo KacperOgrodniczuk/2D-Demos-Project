@@ -30,6 +30,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Die()
     {
         EventManager.OnEnemyDeath?.Invoke();
+        enemyManager.enemyLootDropManager.DropLoot();
         enemyManager.ReturnToPool(gameObject);
     }
 }

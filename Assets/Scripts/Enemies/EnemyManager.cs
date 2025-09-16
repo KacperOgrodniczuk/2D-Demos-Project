@@ -6,6 +6,7 @@ public class EnemyManager : MonoBehaviour
     public EnemyMovement enemyMovement { get; private set; }
     public EnemyHealth enemyHealth { get; private set; }
     public EnemyCollisionDamage enemyCollisionDamage { get; private set; }
+    public EnemyLootDropManager enemyLootDropManager { get; private set; }
 
     IObjectPool<GameObject> enemyPool;
 
@@ -14,6 +15,7 @@ public class EnemyManager : MonoBehaviour
         enemyMovement = GetComponent<EnemyMovement>();
         enemyHealth = GetComponent<EnemyHealth>();
         enemyCollisionDamage = GetComponent<EnemyCollisionDamage>();
+        enemyLootDropManager = GetComponent<EnemyLootDropManager>();
     }
 
     public void SetObjectPool(IObjectPool<GameObject> pool)
