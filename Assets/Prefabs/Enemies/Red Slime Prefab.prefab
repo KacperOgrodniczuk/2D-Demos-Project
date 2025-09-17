@@ -243,3 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb2587fba13e0440b03c336e00d13e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleLootTables:
+  - lootTable: {fileID: 11400000, guid: f47c9174be464dc4693e7cbd524eec7d, type: 2}
+    lootTableRollChance: 1

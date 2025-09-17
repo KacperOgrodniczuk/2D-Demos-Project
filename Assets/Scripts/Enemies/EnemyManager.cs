@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
         enemyLootDropManager = GetComponent<EnemyLootDropManager>();
     }
 
-    public void SetObjectPool(IObjectPool<GameObject> pool)
+    public void SetEnemyObjectPool(IObjectPool<GameObject> pool)
     {
         enemyPool = pool;
     }

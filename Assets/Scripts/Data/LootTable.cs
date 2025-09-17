@@ -10,6 +10,7 @@ public class LootTable : ScriptableObject
     {
         if (possibleDrops == null || possibleDrops.Count == 0)
         {
+            Debug.Log("No possible drops in loot table");
             return null;
         }
 
@@ -22,10 +23,11 @@ public class LootTable : ScriptableObject
 
         float randomValue = Random.Range(0f, totalWeight);
 
+        float currentWeight = 0f;
         foreach (var item in possibleDrops)
         { 
-            randomValue -= item.dropRate;
-            if (randomValue <= 0)
+            currentWeight += item.dropRate;
+            if (randomValue <= currentWeight)
             {
                 return item;
             }

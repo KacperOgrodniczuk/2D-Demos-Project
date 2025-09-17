@@ -50,8 +50,8 @@ public class EndlessSpawner : MonoBehaviour
 
     GameObject CreateEnemy()
     {
-        GameObject newEnemy = Instantiate(enemyPrefab, transform);
-        newEnemy.GetComponent<EnemyManager>().SetObjectPool(enemyPool);
+        GameObject newEnemy = Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
+        newEnemy.GetComponent<EnemyManager>().SetEnemyObjectPool(enemyPool);
         return newEnemy;
     }
 

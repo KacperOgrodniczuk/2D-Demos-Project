@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class LootDrop : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class LootDrop : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    IObjectPool<GameObject> itemPool;
+
     private void Awake()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void SetItemData(DroppableItem droppableItem)
@@ -21,6 +24,18 @@ public class LootDrop : MonoBehaviour
         amount = droppableItem.amount;
 
         spriteRenderer.sprite = droppableItem.itemData.icon;
+
+        Debug.Log("item data set on new loot");
+    }
+
+    public void SetItemObjectPool(IObjectPool<GameObject> pool)
+    { 
+        itemPool = pool;
+    }
+
+    public void ReturnToPool(GameObject item)
+    {
+        itemPool.Release(item);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
